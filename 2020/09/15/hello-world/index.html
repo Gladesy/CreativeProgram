@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="imgRenko">
   <meta name="keywords" content="">
-  <title>Hello World - imgRenko Blog</title>
+  <title>Blog Test - imgRenko Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -132,6 +132,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/project/">
+                <i class="iconfont icon-user-fill"></i>
+                Project
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
@@ -157,7 +169,7 @@
           <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
-                Hello World
+                Blog Test
               
             </span>
 
@@ -202,10 +214,14 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">Blog Test</h1>
             
             <div class="markdown-body" id="post-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+              <p>这是一个基于<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>制作的Blog。这个Blog，今后将充当测试页面的角色，因此你可能会在这个页面看到一些奇奇怪怪的东西。本页面是Github Page，在上传Blog新数据的时候，Blog的访问速度比较慢，请耐心等待。 </p>
+<p>下附一些外部链接<br><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo documentation</a> </p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">Hexo GitHub</a>.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/imgRenko">ImgRenko GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -255,6 +271,31 @@
               <article class="comments" id="comments">
                 
                 
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "mFYGnLI8VDc8KFCIKrEtUxrH-gzGzoHsz",
+          app_key: "N25y6fHoiMcCd0IgFXR5XJrp",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
 
               </article>
             

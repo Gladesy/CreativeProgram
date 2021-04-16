@@ -1,0 +1,929 @@
+﻿/*html {
+    overflow: -moz-hidden-unscrollable; /*注意！若只打 hidden，chrome 的其它 hidden 會出問題
+    height: 100%;
+}
+*/
+
+/*立繪變更*/
+
+.chara_on{
+background:maroon; border:0; color:yellow; padding:3
+}
+.chara_off{
+background:maroon; border:0; color:white; padding:3
+}
+/**/
+.ADVALLDIV{
+ position:relative; 
+ background-image: url('../../img/page/book/pc/bg_list_s_SR.png'); 
+ background-position:9px 50px;
+ background-repeat:no-repeat; 
+ background-size:197px ;
+ overflow:hidden; 
+	width: 210px;
+	height: 260px;
+	top: 0px;
+	left: 15px;  
+	margin-right:1px;
+	margin-top:1px;
+ z-index:3; 
+ float:left;
+}
+.ADVALL{
+width: 192px; 
+height: 144px; 
+margin-top:53px;
+margin-left:11px;
+
+}
+.namebox{
+	z-index:2;
+	position:fixed;
+	top:305px;
+	left:990px;
+	width:115px;
+	font-size:12px;
+
+}
+.carduse {
+	width: 1130px;
+	height: 800px;
+	top: 0px;
+	left: -10000px;
+	position: fixed;
+	overflow: hidden;
+	background-color:rgb(0,0,0,80%);
+	z-index:4;
+}
+.carduse2 {
+	width: 550px;
+	height: 700px;
+	top:35px;
+	left:240px;
+	position: absolute;
+	overflow: hidden;
+	background-color: #3B2315;
+	background-image: url('../../img/pc/page/common/inner_frame.png');
+	background-size: 550px 700px;
+	background-repeat: no-repeat;
+	z-index:4;
+}
+.carduse3 {
+	width: 100px;
+	height: 32px;
+	top: 44px;
+	left: 680px;
+	position: absolute;
+	overflow: hidden;
+	z-index:5;
+	background-image: url('../../img/page/common/button_base.png');
+	color:white;
+	text-align: center; 
+	line-height:30px;
+	font-size:medium;
+
+}
+.carduse3:hover {
+   background-image:url('../../img/page/common/button_base_hover.png');
+}
+.cardname{
+    background-color: #600;
+    border-top: solid 2px #c00;
+    border-bottom: solid 2px #c00;
+    position: absolute;
+    font-weight: 700;
+    top:8px;
+    left:5px;
+    width:540px;
+    height:;
+	text-align: center;
+    padding: 5px 0;
+    color: #fff;
+	z-index:4;
+
+}
+.carduuuu {
+	width: 450px;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+ul li {
+	float: left;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+a {
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	margin: 0 auto;
+	width: 520px;
+	height: 700px;
+	position: relative;
+	top: 10px;
+	left: 0px;
+}
+#imgs {
+	width: 450px;
+	height: 100%;
+	overflow: hidden;
+	top: 50px;
+	left: 35px;
+	float: left;
+	position: relative;
+}
+#imgs ul {
+	position: absolute;
+	z-index: 2;
+	width: 2700px;
+	height: 470px;
+	left: -450px;
+}
+#nav {
+	width: 400px;
+	height: 20px;
+	float: left;
+	position: absolute;
+	left: 25%;
+	top: 90%;
+	z-index: 3;
+}
+#nav ul li a {
+	width: 33px;
+	height: 33px;
+	line-height: 20px;
+	display: inline-block;
+	margin-right: 45px;
+	text-align: center;
+	font-size: 12px;
+	background-image: url('../../img/page/common/button_selection.png');
+	cursor: pointer;
+	background-size: 33px;
+}
+#nav ul li a:hover {
+	background-position: 0 -33px;
+}
+#preous, #next {
+	width: 250px;
+	background: #000;
+	font-size: 20px;
+	font-weight: 900;
+	text-align: center;
+	height: 610px;
+	position: absolute;
+	top: 0%;
+	color: #FFF;
+	z-index: 3;
+/*	background-image: url('../../img/page/common/button_trigone4.png');
+	background-size: 35px;
+	background-position:100 600;
+	background-repeat:no-repeat;
+*/	background-color:rgb(0,0,0,0%);
+}
+#preous:hover, #next:hover {
+/*	background-position: 0 -35px;
+*/}
+#preous {
+	left: 0px;
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+#next {
+	right: 0px;
+}
+#nav ul li a.current {
+	background-image: url('../../img/page/common/button_selection.png');
+	cursor: pointer;
+	background-size: 33px;
+	background-position: 0 -66px;
+	cursor: pointer;
+}
+}
+#nav ul li a.hidden {
+	background-image: url('../../img/page/common/button_selection.png');
+	background-size: 33px;
+}
+#nav ul li a.hidden:hover {
+	background-position: 0 -33px;
+}
+
+
+
+/*---------*/
+.div_master{
+	width:1100px; 
+	height:780px; 
+	position: absolute; 
+	top:5px; 
+	left:8px; 
+	background-image: url('../../img/page/pc/bg.png'); 
+	background-repeat: repeat-y; 
+	background-size:1098px;
+}
+
+.div_master_down{
+	width:1100px; 
+	height:20px; 
+	position: absolute; 
+	top:770px; 
+	left:8px; 
+	background-image: url('../../img/pc/page/common/bg_wideblock_bottom.png'); 
+	background-repeat: no-repeat; 
+	background-size:1098px;
+}
+.div_master_top{
+	width:1100px; 
+	height:20px; 
+	position: absolute; 
+	top:0px; 
+	left:8px; 
+	background-image: url('../../img/pc/page/common/bg_wideblock_bottom.png'); 
+	background-repeat: no-repeat; 
+	background-size:1098px;
+	-moz-transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	transform: scaleY(-1);
+}
+
+.div_main{
+	height:700px;
+	width:910px;
+	top:40px;
+	left:40px;
+	position:absolute;
+	overflow-x: hidden;
+	padding:0 180px 0 0;
+	
+user-select: none;
+-o-user-select: none;
+-ms-user-select: none;
+-moz-user-select: -moz-none;
+-webkit-user-select: none;
+
+	
+}
+
+.div_bg{
+	background-image: url('../../img/pc/page/common/inner_frame.png'),url('../../img/pc/page/card/bg_cardList.jpg');
+	background-size: 888px 720px;
+	background-repeat: no-repeat;
+	top:30px;
+	left:36px;
+	height:720px;
+	width:900px;
+	position:absolute;
+	z-index:2;
+
+}
+.auto-style1 {
+	font-size: medium;
+	color: black;
+	font-weight: bold;
+	top:10px;
+	right:20px;
+	position: absolute;
+	z-index:3
+}
+.div_card {
+	width: 210px;
+	height: 260px;
+	top: 5px;
+	left: 16px;  
+	position: relative;
+	overflow: hidden;
+	float:left;
+	margin-right:1px;
+	margin-top:1px;
+	z-index:3;
+	background-color: #3B2315;
+/*	background-image: url('../../img/pc/page/common/inner_frame.png'),url('../../img/pc/page/card/bg_cardList.jpg');
+	background-size: 250px 300px;
+	background-repeat: no-repeat;
+*/
+}
+.card1 {
+	width: 200px;
+	top: 5px;
+	right: 5px;
+	position: absolute;
+}
+.card2 {
+	width: 200px;
+	top: 0px;
+	right: -20px;
+	position: relative;
+}
+.card3 {
+	width: 200px;
+	top: 0px;
+	right: -20px;
+	position: relative;
+}
+.card4 {
+	width: 200px;
+	top: 0px;
+	right: -20px;
+	position: relative;
+}
+
+
+/*---------------------------*/
+.ADVuse {
+	width: 1130px;
+	height: 800px;
+	top: 0px;
+	left: -10000px;
+	position: fixed;
+	overflow: hidden;
+	z-index:4;
+	background-color:rgb(0,0,0,80%);
+}
+
+.ADVuse2 {
+	width: 880px;
+	height: 540px;
+	top:150px;
+	left:40px;
+	position: absolute;
+	overflow: hidden;
+/*  background-color: #3B2315;*/background-image: url('../../img/pc/page/common/inner_frame.png'),url('../../img/page/book/pc/bg_info.jpg');
+	background-size: 880px 540px;
+	background-repeat: no-repeat;
+	z-index: 4;
+}
+.bookHarem {
+	width: 872px;
+	height: 540px;
+	right: 0px;
+	top: 0px;
+	position: relative;
+	overflow: inherit;
+}
+.bookHarem__name {
+	position: absolute;
+	top: 180px;
+	left: 38px;
+	font-size: 15px;
+	color: white;
+}
+.bookHarem__detailListBg {
+	position: absolute;
+	top: 16px;
+	right: 24px;
+}
+.bookHarem__ico__rarityEX, .bookHarem__ico__rarityLR, .bookHarem__ico__rarityR, .bookHarem__ico__raritySR, .bookHarem__ico__raritySSR {
+	position: absolute;
+	top: 0;
+	left: 0; /*	display: inline-block;
+*/;
+	width: 80px;
+	height: 48px;
+	background-size: 80px;
+	background-repeat: no-repeat;
+	background-image: url('../../img/page/book/pc/ico_rarity.png');
+}
+.bookHarem__ico--anim, .bookHarem__ico--animNone {
+	top: 178px;
+	left: 345px;
+	background-image: url('../../img/page/book/pc/ico_anim.png');
+}
+.bookHarem__ico__rarityR {
+	background-position: 0 -144px;
+}
+.bookHarem__ico__raritySR {
+	background-position: 0 -96px;
+}
+.bookHarem__ico__raritySSR {
+	background-position: 0 -48px;
+}
+.bookHarem__ico__rarityLR {
+	background-position: 0 0;
+}
+.bookHarem__ico__rarityEX {
+	background-position: 0 -192px;
+}
+
+
+
+/* */
+.bookHarem__ico--animNone, .bookHarem__ico--eroNone, .bookHarem__ico--osawariNone, .bookHarem__ico--voiceNone {
+	background-position: 0 -24px;
+}
+.bookHarem__ico--anim, .bookHarem__ico--animNone, .bookHarem__ico--ero, .bookHarem__ico--eroNone, .bookHarem__ico--osawari, .bookHarem__ico--osawariNone, .bookHarem__ico--voice, .bookHarem__ico--voiceNone {
+	position: absolute; 
+	/*	display: inline-block;*/
+	width: 32px;
+	height: 24px;
+	background-size: 32px;
+	background-repeat: no-repeat;
+}
+.bookHarem__ico--voice, .bookHarem__ico--voiceNone {
+	top: 178px;
+	left: 312px;
+	background-image: url('../../img/page/book/pc/ico_voice.png');
+}
+.bookHarem__bgList--EX, .bookHarem__bgList--LR, .bookHarem__bgList--R, .bookHarem__bgList--SR, .bookHarem__bgList--SSR, .bookHarem__bgList-- {
+	/*	display: inline-block;*/
+	margin: 2px;
+	position: absolute;
+	width: 408px;
+	height: 272px;
+	top: 20px;
+	right: 20px;
+/*	background-size: 408px;
+	background-repeat: no-repeat;*/
+}
+.bookHarem__bgListInfo--EX, .bookHarem__bgListInfo--LR, .bookHarem__bgListInfo--R, .bookHarem__bgListInfo--SR, .bookHarem__bgListInfo--SSR, .bookHarem__bgListInfo--, .bookHarem__bgListInfo-- {
+	/*	display: inline-block;*/
+	margin: 2px;
+	width: 136px;
+	height: 104px;
+	background-size: 136px 103px;
+	background-repeat: no-repeat;
+}
+.bookHarem__bgListImg {
+	position: absolute;
+	top: 24px;
+	left: 32px;
+}
+.bookHarem__bgList--R {
+	background-image: url('../../img/page/book/pc/bg_list_R.png');
+}
+.bookHarem__bgList--SR {
+	background-image: url('../../img/page/book/pc/bg_list_SR.png');
+}
+.bookHarem__bgList--SSR {
+	background-image: url('../../img/page/book/pc/bg_list_SSR.png');
+}
+.bookHarem__bgList--LR {
+	background-image: url('../../img/page/book/pc/bg_list_LR.png');
+}
+.bookHarem__bgList--EX {
+	background-image: url('../../img/page/book/pc/bg_list_EX.png');
+}
+.bookHarem__bgListInfo--R {
+	background-image: url('../../img/page/book/pc/bg_list_s_R.png');
+}
+.bookHarem__bgListInfo--SR {
+	background-image: url('../../img/page/book/pc/bg_list_s_SR.png');
+}
+.bookHarem__bgListInfo--SSR {
+	background-image: url('../../img/page/book/pc/bg_list_s_SSR.png');
+}
+.bookHarem__bgListInfo--LR {
+	background-image: url('../../img/page/book/pc/bg_list_s_LR.png');
+}
+.bookHarem__bgListInfo--EX {
+	background-image: url('../../img/page/book/pc/bg_list_s_EX.png');
+}
+.bookHarem__bgList-- {
+	background-image: url('../../img/page/book/pc/bg_list_R.png');
+}
+.bookHarem__bgListInfo-- {
+	background-image: url('../../img/page/book/pc/bg_list_s_R.png');
+}
+.bookHarem__scene1Btn:before, .bookHarem__scene2Btn:before {
+	content: '  ';
+	color: transparent!important;
+	-webkit-transition: opacity .5s ease;
+	display: block;
+	background-size: 144px;
+	width: 144px;
+	height: 40px;
+	background-repeat: no-repeat;
+}
+.billShopListItem__control--buyButton:hover:before {
+	opacity: 0;
+}
+.billShopListItem__comment, .billShopListItem__limitAmount, .billShopListItem__limitDate, .billShopListItem__point {
+	margin: 0;
+	padding: 3px;
+	background-color: #5d5a47;
+}
+.bookHarem__scene1Btn:hover:before, .bookHarem__scene2Btn:hover:before, .bookHarem__scene3Btn:hover:before {
+	opacity: 0;
+}
+.bookHarem__scene1Btn {
+	width: 144px;
+	height: 40px;
+	background-image: url('../../img/page/book/pc/btn_scene1.png');
+	background-position: 0 -40px;
+	background-size: 144px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.bookHarem__scene1Btn:before {
+	background-image: inherit;
+	background-position: 0 top;
+	transition: opacity .5s ease;
+}
+.bookHarem__scene1Btn--off {
+	background-image: url('../../img/page/book/pc/btn_scene1.png');
+	background-size: 144px;
+	background-position: 0 -80px;
+	background-repeat: no-repeat;
+	width: 144px;
+	height: 40px;
+}
+.bookHarem__scene2Btn {
+	width: 144px;
+	height: 40px;
+	background-image: url('../../img/page/book/pc/btn_scene2.png');
+	background-position: 0 -40px;
+	background-size: 144px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.bookHarem__scene2Btn:before {
+	background-image: inherit;
+	background-position: 0 top;
+	transition: opacity .5s ease;
+}
+.bookHarem__scene3Btn:before, .bouquetPresentSelect__topButton:before {
+	-webkit-transition: opacity .5s ease;
+	content: '  ';
+	color: transparent!important;
+}
+.bookHarem__scene2Btn--off {
+	background-image: url('../../img/page/book/pc/btn_scene2.png');
+	background-size: 144px;
+	background-position: 0 -80px;
+	background-repeat: no-repeat;
+	width: 144px;
+	height: 40px;
+}
+.bookHarem__scene3Btn {
+	width: 144px;
+	height: 40px;
+	background-image: url('../../img/page/book/pc/btn_scene3.png');
+	background-position: 0 -40px;
+	background-size: 144px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.bookHarem__scene3Btn:before {
+	display: block;
+	width: 144px;
+	height: 40px;
+	background-image: inherit;
+	background-position: 0 top;
+	background-size: 144px;
+	background-repeat: no-repeat;
+	transition: opacity .5s ease;
+}
+.bookHarem__scene3Btn--off {
+	background-image: url('../../img/page/book/pc/btn_scene3.png');
+	background-size: 144px;
+	background-position: 0 -80px;
+	background-repeat: no-repeat;
+	width: 144px;
+	height: 40px;
+}
+.bookHarem__scene1Btn, .bookHarem__scene1Btn--off, .bookHarem__scene2Btn, .bookHarem__scene2Btn--off, .bookHarem__scene3Btn, .bookHarem__scene3Btn--off {
+	/*	display: inline-block;
+*/	margin: 0 8px;
+}
+.bookHarem__scene2Btn, .bookHarem__scene2Btn--off {
+	margin: 6px 8px;
+}
+.bookHarem__scene {
+	position: absolute;
+	left: 224px;
+	top: 25px;
+	width: 160px;
+}
+.bookHarem__bg_list_info {
+	position: absolute;
+	top: 300px;
+	right: 23px;
+	width: 408px;
+	height: 214px;
+	background-size: 408px;
+	background-repeat: no-repeat;
+	background-image: url('../../img/page/book/pc/bg_list_info.png');
+}
+.bookHarem__voiceActor {
+	position: absolute;
+	top: 31px;
+	left: 60px;
+	width: 284px;
+	text-align: center;
+	display: table;
+	color: white;
+}
+.bookHarem__detailComment {
+	position: absolute;
+	width: 316px;
+	top: 60px;
+	left: 46px;
+	font-size: 12px;
+	color: white;
+}
+.bookHarem__detailChara {
+	width: 820px;
+	height: 614px;
+	top: auto;
+	left: -130px;
+	bottom: 0;
+	position: absolute;
+	display: block;
+	background-size: 820px;
+	background-repeat: no-repeat;
+	-webkit-transform-origin: center bottom;
+	transform-origin: center bottom;
+}
+
+/*---------------------*/
+
+.Guardian_1 {
+	width: 1130px;
+	height: 800px;
+	top: 0px;
+	left: -100000px;
+	position: fixed;
+	overflow: hidden;
+	z-index:3;
+	background-color:rgb(0,0,0,80%);
+}
+.Guardian_2 {
+	position:absolute; 
+	top:100px;
+	left:43px;
+	background:url(../../img/pc/page/guardian/guardianList/bg.jpg);
+	width:872px;
+	height:532px; 
+	background-repeat:no-repeat; 
+	z-index:3;
+}
+.Guardian_3 {
+	width:100%;
+	padding-top:30px;
+	padding-bottom:10px;
+	text-align:center;
+}
+.Guardian_4 {
+	display:inline-block;
+	margin:2px;
+}
+.Guardian_5{
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	width:272px;
+	height:152px;
+}
+
+
+/*GR*/
+
+
+.GRRANK_1 {
+	width: 1130px;
+	height: 800px;
+	top: 0px;
+	left: -10000px;
+	position: fixed;
+	overflow: hidden;
+	z-index:3;
+	background-color:rgb(0,0,0,80%);
+}
+.cardAddition__cardListBg {
+	position:absolute;
+	background-image: url(../../img/pc/page/common/inner_frame.png),url(../../img/pc/page/cardaddition/index/bg.jpg);
+	background-size: 872px 532px, 872px 532px;
+	top:100px;
+	left:43px;
+	width: 872px;
+	height: 532px;
+	z-index:3;
+}
+
+.cardAddition__cardListImg__hover, .cardAddition__cardListImg__hover:before {
+	display: block;
+	overflow: hidden;
+	float:left;
+	width: 154px;
+	height: 222px;
+	margin:0;
+	background-size: 154px;
+	background-repeat: no-repeat;
+}
+.cardAddition__cardListImg__hover {
+	top: 0;
+	left: 0;
+	width: 154px;
+	height: 222px;
+	margin:0;
+	background-image: url(../../img/page/blank.png);
+	background-position: 0 -222px;
+	cursor: pointer;
+}
+.cardAddition__cardListImg__hover:before {
+	content: '  ';
+	width: 154px;
+	height: 222px;
+	color: transparent!important;
+	background-image: inherit;
+	background-position: 0 top;
+	-webkit-transition: opacity .5s ease;
+	transition: opacity .5s ease;
+}
+.cardAddition__cardListImg__hover:hover:before {
+	opacity: 0;
+}
+.GRRANKDIV{
+	width: 154px; 
+	height: 222px; 
+	position: relative; 
+	overflow:hidden; 
+	float:left; 
+	margin:3px;
+}
+
+
+
+.GRRANK_2 {
+	width: 1130px;
+	height: 800px;
+	top: 0px;
+	left: -10000px;
+	position: fixed;
+	overflow: hidden;
+	z-index:3;
+/*	background-color:rgb(0,0,0,80%);*/
+}
+.cardAdditionDetail {
+	background-image: url(../../img/pc/page/common/inner_frame.png),url(../../img/pc/page/cardaddition/detail/bg.jpg);
+	background-size:872px 532px,872px 532px;
+	background-repeat: no-repeat;
+	width: 872px;
+	height: 532px;
+	top: 100px;
+	left:43px;
+	position:absolute;
+	z-index:3;	
+}
+.cardAdditionDetail__leftArea {
+	position: relative;
+	width: 450px;
+	height: 532px;
+	top: 0;
+	left: 0;
+}
+.cardAdditionDetail__bustUpImgArea {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 872px;
+	height: 532px;
+	overflow: hidden;
+}
+.cardAdditionDetail__bustUpImg {
+	position: absolute;
+	width: 880px;
+	height: auto;
+	top: -127px;
+	left: -160px;
+}
+.cardAdditionDetail__plateHarem {
+	width: 320px;
+	height: 452px;
+	background-image: url(../../img/page/cardaddition/detail/plate_harem.png);
+	background-size: 320px;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50px;
+	left: 500px;
+}
+.cardAdditionDetail__harem--name {
+	color:#FFFFFF;
+	position: absolute;
+	top: 23px;
+	left: 72px;
+	width: 230px;
+	height: 12px;
+}
+.cardAdditionDetail__harem--sample1, .cardAdditionDetail__harem--sample2, .cardAdditionDetail__harem--sample3 {
+	background-image: none;
+	background-size: 160px;
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 120px;
+}
+.cardAdditionDetail__harem--sample1 {
+	position: absolute;
+	top: 50px;
+	left: 18px;
+}
+.cardAdditionDetail__harem--sample2 {
+	position: absolute;
+	top: 181px;
+	left: 18px;
+}
+.cardAdditionDetail__harem--sample3 {
+	position: absolute;
+	top: 313px;
+	left: 18px;
+}
+
+.cardAdditionDetail__button--haremView1:hover:before, .cardAdditionDetail__button--haremView2:hover:before, .cardAdditionDetail__button--haremView3:hover:before {
+	opacity: 0;
+}
+.cardAdditionDetail__button--haremView1 {
+	position: absolute;
+	top: 132px;
+	right: 16px;
+	width: 120px;
+	height: 40px;
+	background-size: 120px;
+	background-repeat: no-repeat;
+	background-image: url(../../img/page/cardaddition/detail/btn_scene1.png);
+	background-position: 0 -40px;
+	cursor: pointer;
+}
+.cardAdditionDetail__button--haremView2 {
+	position: absolute;
+	top: 263px;
+	right: 16px;
+	width: 120px;
+	height: 40px;
+	background-image: url(../../img/page/cardaddition/detail/btn_scene2.png);
+	background-position: 0 -40px;
+	background-size: 120px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.cardAdditionDetail__button--haremView3 {
+	position: absolute;
+	top: 395px;
+	right: 16px;
+	width: 120px;
+	height: 40px;
+	background-image: url(../../img/page/cardaddition/detail/btn_scene3.png);
+	background-position: 0 -40px;
+	background-size: 120px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+.cardAdditionDetail__button--haremView1:before {
+	display: block;
+	width: 120px;
+	height: 40px;
+	background-image: inherit;
+	background-position: 0 top;
+	background-size: 120px;
+	background-repeat: no-repeat;
+	transition: opacity .5s ease;
+}
+.cardAdditionDetail__button--haremView2:before {
+	display: block;
+	width: 120px;
+	height: 40px;
+	background-image: inherit;
+	background-position: 0 top;
+	background-size: 120px;
+	background-repeat: no-repeat;
+	transition: opacity .5s ease;
+}
+.cardAdditionDetail__button--haremView3:before {
+	display: block;
+	width: 120px;
+	height: 40px;
+	background-image: inherit;
+	background-position: 0 top;
+	background-size: 120px;
+	background-repeat: no-repeat;
+	transition: opacity .5s ease;
+}
+
+.cardAdditionDetail__button--haremView--disabled, .cardAdditionDetail__button--haremView--disabled:before {
+	background-position: 0 -80px;
+	content: "";
+	display: block;
+	pointer-events: none;
+}
+.cardAdditionDetail__button--haremView1:before, .cardAdditionDetail__button--haremView2:before, .cardAdditionDetail__button--haremView3:before{
+	content: '  ';
+	color: transparent!important;
+	-webkit-transition: opacity .5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

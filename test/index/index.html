@@ -1,0 +1,710 @@
+﻿<html style="background:black;overflow: hidden;" oncontextmenu="return false;">
+
+	<link href="css/playuse.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="js/playuse.js"></script>
+
+
+	<style type="text/css">
+/*html {
+    overflow: -moz-hidden-unscrollable;
+    height: 100%;
+}
+*/
+	</style>
+
+
+<body style="transform-origin:0 0;top:0;left:0;padding:0;margin:0;" onload="readend()" >
+
+	<iframe id="sceneopena" name="sceneopena" src="scene_a.html" style="position:fixed; border:0px; left: -3000px; top: 15px; width: 960px; height: 760px; z-index:10;" ></iframe>
+	<iframe id="sceneopenh" name="sceneopenh" src="scene_h.html" style="position:fixed; border:0px; left: -3000px; top: 15px; width: 960px; height: 760px; z-index:10;" ></iframe>
+
+
+
+<div class="div_master"></div>
+<div class="div_master_top"></div>
+<div class="div_master_down"></div>
+
+
+
+
+	<button style="  width:100px; height:60px; position: fixed; top:580px; left:990px;font-size:14px; z-index:5;" onclick="scenewindow()">
+	<b>關閉播放框</b></button>
+	<button style=" border:0; background-color:rgb(255,255,255,30%); width:70px; height:20px; position: fixed; top:-3px; left:20px; font-size: 10px; font-weight:200; z-index:5; bottom:0;margin:0;" onclick="testw()">
+	適應視窗</button>
+	<button style="  width:110px; height:25px; position:fixed; top:60px; left:985px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('all','')">
+	<b>全顯示</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:85px; left:985px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank',' ')">
+	<b>N</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:85px; left:1040px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','R')">
+	<b>R</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:110px; left:985px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','SR')">
+	<b>SR</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:110px; left:1040px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','SSR')">
+	<b>SSR</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:135px; left:985px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','LR')">
+	<b>LR</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:135px; left:1040px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','UR')">
+	<b>UR</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:160px; left:985px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','GR')">
+	<b>GR</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:160px; left:1040px;font-size:14px; z-index:3; font-size:12;" onclick="readchar('rank','EX')">
+	<b>EX</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:185px; left:985px;font-size:14px; z-index:3; font-size:12;"onclick="guardian()">
+	<b>七神</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:185px; left:1040px;font-size:14px; z-index:3; font-size:12;"onclick="readchar('re','')">
+	<b>清   空</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:210px; left:985px;font-size:14px; z-index:3; font-size:12;"  onclick="readchar('ADVALLc','')">
+	<b>卡面</b></button>
+	<button style="  width:55px; height:25px; position:fixed; top:210px; left:1040px;font-size:14px; z-index:3; font-size:12;"  onclick="readchar('ADVALLh','')">
+	<b>寢</b></button>
+
+
+
+<img id="readimg" src="../img/stamp/m/26a9cb99775d7f54843e6ca1b56f709eab8b.png" style=" position: fixed; left:990px; top:650; height:100; width:100;">
+<label id="Label1" style=" width:100px; height:20px; position:fixed; top:240px; left:1010px;font-size:12px;  font-weight: 900"> 指 定 編 號</label>
+<input id="IDsearch" name="Text1" type="text" style="  width:100px; height:20px; position:fixed; top:260px; left:990px;font-size:14px; z-index:3;"onkeypress="if (event.keyCode==13){readchar('IDsearch','')}">
+<label id="Label2" style=" width:100px; height:20px; position:fixed; top:285px; left:1000px;font-size:12px;  font-weight: 900"> Player name</label>
+<input id="chname" name="Text1" type="text"  value="player" style="  width:100px; height:20px; position:fixed; top:303px; left:990px;font-size:14px; z-index:3;">
+
+
+
+
+<div  id="div_bg" class="div_bg" onmousedown="div_bg_back(event)"></div>
+<div  id="div_main" class="div_main" >
+
+
+
+
+<!--ADVuse-->
+<div id="ADVuse" class="ADVuse" onmousedown="ADVout()">
+
+<div id="ADVuse2" class="ADVuse2"><img id="bookHarem__detailChara" class="bookHarem__detailChara" src="" onerror="picError(this,'../img/card/harem/noimg.png')"><div class="bookHarem"><div id="bookHarem__bgList--" class="bookHarem__bgList--" ><div class="bookHarem__bgListImg"><img id="bookPageHaremList__img" alt="card" class="bookPageHaremList__img"src="" onerror="picError(this,'../img/card/harem/noimg.png')" style="width: 192px; height: auto;"></div><div id="bookHarem__ico__rarity" class="bookHarem__ico__rarity"></div><div class="bookHarem__scene"><div id="bookHarem__scene1" class="bookHarem__scene1Btn--off " onclick="scene1('','')"></div><div id="bookHarem__scene2" class="bookHarem__scene2Btn" onclick="scene2(' ',' ')"></div><div id="bookHarem__scene3" class="bookHarem__scene3Btn--off" onclick="scene3(' ',' ')"></div></div><div id="bookHarem__name" class="bookHarem__name"></div>
+<div style=" position: absolute; top: 220px; left: 60px; height: 40px; width: 350px; margin: 0 7px;">
+			<button id="chara0" class="chara_on" >限界突破0</button>
+			<button id="chara1" class="chara_off">限界突破1</button>
+			<button id="chara2" class="chara_off">限界突破2</button>
+			<button id="chara3" class="chara_off">限界突破3</button>
+			</div>
+</div><div class="bookHarem__bg_list_info"><div id="bookHarem__voiceActor" class="bookHarem__voiceActor"></div><div id="bookHarem__detailComment" class="bookHarem__detailComment"></div></div></div></div>
+
+</div>
+
+<!--carduse-->
+<div id="carduse" class="carduse" onmousedown="cardout()">
+<div id="carduse3" class="carduse3" onclick="namebox_all()">同將姬一覽</div>
+<div id="" class="carduse2">
+<div id="cardname"class="cardname"></div>
+
+<div id="wrapper">
+		<div id="imgs">
+			<ul>
+				<li><a><img id="cardview4_1" src="../img/card/xl/.jpg" alt="" class="carduuuu" onerror="picError(this,'../img/card/xl/nocard.jpg');"></a></li>
+				<li><a><img id="cardview1" src="../img/card/xl/.jpg" alt="" class="carduuuu" onerror="picError(this,'../img/card/xl/nocard.jpg');"></a></li>
+				<li><a><img id="cardview2" src="../img/card/xl/.jpg" alt="" class="carduuuu" onerror="picError(this,'../img/card/xl/nocard.jpg');"></a></li>
+				<li><a><img id="cardview3" src="../img/card/xl/.jpg" alt="" class="carduuuu" onerror="picError(this,'../img/card/xl/nocard.jpg');"></a></li>
+				<li><a><img id="cardview4" src="../img/card/xl/.jpg" alt="" class="carduuuu" onerror="picError(this,'../img/card/xl/nocard.jpg');"></a></li>
+				<li><a><img id="cardview1_6" src="../img/card/xl/.jpg" alt="" class="carduuuu" onerror="picError(this,'../img/card/xl/nocard.jpg');"></a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div id="nav">
+			<ul>
+				<li><a class="current"></a></li>
+				<li><a></a></li>
+				<li><a></a></li>
+				<li><a></a></li>
+			</ul>
+		</div>
+		<div id="preous"></div>
+		<div id="next"></div>
+	</div>
+
+
+
+
+
+</div>
+</div>
+
+
+
+<a name="0000"></a><div id="divTOP" style=" position:absolute; top:0px;"></div>
+<a name='top'></a>
+<div id="ADVALLDIVTOP" onload="readend()"></div>
+
+
+<!--開頭-->
+
+
+
+
+<!--七神-->
+
+<div id="Guardian_1" class="Guardian_1" onmousedown="Guardianout()">
+<div id="Guardian_2" class="Guardian_2">
+<div id="Guardian_3" class="Guardian_3">
+
+<div class="Guardian_4" style="background-image : url(../img/guardian/guardian/plate/c914c6421697cdb677bd09500157186c.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian1')"></div></div>
+
+<div class="Guardian_4" style="background-image: url(../img/guardian/guardian/plate/5abaa441f1d6f8cb3e5bde1c84b53281.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian2')"></div></div>
+<br>
+<div class="Guardian_4" style="background-image: url(../img/guardian/guardian/plate/b875a09e610eba8ea5042ded5edfb263.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian3')"></div></div>
+					
+<div class="Guardian_4" style="background-image: url(../img/guardian/guardian/plate/7de2d56115d3d8e38227f62a9ad52083.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian4')"></div></div>
+
+<div class="Guardian_4" style="background-image: url(../img/guardian/guardian/plate/73a39a787f9f60731239568e82d1ae33.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian5')"></div></div>
+<br>
+<div class="Guardian_4" style="background-image: url(../img/guardian/guardian/plate/3a701fce9677bedc91c2680a2532dfe0.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian6')"></div></div>
+
+<div class="Guardian_4" style="background-image: url(../img/guardian/guardian/plate/288c01799a11184dc47bb8a37b0b9f35.png);">
+<div class="Guardian_5" oncontextmenu="return false;" onmousedown="Guardianoutopen(event,'guardian7')"></div></div>
+
+
+
+</div></div></div>
+
+
+<!--底-->
+
+
+<div id="GRRANK_2" class="GRRANK_2" onmousedown="GRRANK_2out()">
+<div class="cardAdditionDetail">
+		<div class="cardAdditionDetail__leftArea">
+			<div class="cardAdditionDetail__bustUpImgArea">
+				<img id="GRRANK_bustup" class="cardAdditionDetail__bustUpImg" src="" onerror="picError(this,'../img/card/harem/noimg.png')"></div>
+		</div>
+		
+<div class="cardAdditionDetail__plateHarem">
+	<div id="GRRANK_name" class="cardAdditionDetail__harem--name"></div>
+	<div id="GRRANK_sample1" class="cardAdditionDetail__harem--sample1" style="background-image:;"></div>
+	<div id="GRRANK_haremView1"class="cardAdditionDetail__button--haremView1"></div >
+	
+	
+	<div id="GRRANK_sample2" class="cardAdditionDetail__harem--sample2" style="background-image:;"></div>
+	<div id="GRRANK_haremView2"class="cardAdditionDetail__button--haremView2"></div >
+	
+	<div id="GRRANK_sample3" class="cardAdditionDetail__harem--sample3" style="background-image:;"></div>
+	<div id="GRRANK_haremView3"class="cardAdditionDetail__button--haremView3 cardAdditionDetail__button--haremView--disabled"></div >
+
+</div></div></div>
+
+
+
+
+</div>
+
+
+
+<select id="namebox" size="8" class="namebox">
+
+<option onmousedown="readchar('name_1','真田幸村')">真田幸村</option>
+<option onmousedown="readchar('name_1','お市')">お市</option>
+<option onmousedown="readchar('name_1','山県昌景')">山県昌景</option>
+<option onmousedown="readchar('name_1','伊達政宗')">伊達政宗</option>
+<option onmousedown="readchar('name_1','加藤清正')">加藤清正</option>
+<option onmousedown="readchar('name_1','豊臣秀吉')">豊臣秀吉</option>
+<option onmousedown="readchar('name_1','佐竹義重')">佐竹義重</option>
+<option onmousedown="readchar('name_1','ねね')">ねね</option>
+<option onmousedown="readchar('name_1','朝倉義景')">朝倉義景</option>
+<option onmousedown="readchar('name_1','長宗我部元親')">長宗我部元親</option>
+<option onmousedown="readchar('name_1','はつ')">はつ</option>
+<option onmousedown="readchar('name_1','三条夫人')">三条夫人</option>
+<option onmousedown="readchar('name_1','尼子晴久')">尼子晴久</option>
+<option onmousedown="readchar('name_1','松永久秀')">松永久秀</option>
+<option onmousedown="readchar('name_1','氏家卜全')">氏家卜全</option>
+<option onmousedown="readchar('name_1','森蘭丸')">森蘭丸</option>
+<option onmousedown="readchar('name_1','上杉景勝')">上杉景勝</option>
+<option onmousedown="readchar('name_1','伊達成実')">伊達成実</option>
+<option onmousedown="readchar('name_1','服部半蔵')">服部半蔵</option>
+<option onmousedown="readchar('name_1','種子島時尭')">種子島時尭</option>
+<option onmousedown="readchar('name_1','村上武吉')">村上武吉</option>
+<option onmousedown="readchar('name_1','加藤段蔵')">加藤段蔵</option>
+<option onmousedown="readchar('name_1','丹羽長秀')">丹羽長秀</option>
+<option onmousedown="readchar('name_1','武田信虎')">武田信虎</option>
+<option onmousedown="readchar('name_1','真田信之')">真田信之</option>
+<option onmousedown="readchar('name_1','猿飛佐助')">猿飛佐助</option>
+<option onmousedown="readchar('name_1','千姫')">千姫</option>
+<option onmousedown="readchar('name_1','織田信忠')">織田信忠</option>
+<option onmousedown="readchar('name_1','陶晴賢')">陶晴賢</option>
+<option onmousedown="readchar('name_1','稲葉一鉄')">稲葉一鉄</option>
+<option onmousedown="readchar('name_1','鍋島直茂')">鍋島直茂</option>
+<option onmousedown="readchar('name_1','山内一豊')">山内一豊</option>
+<option onmousedown="readchar('name_1','真田幸昌')">真田幸昌</option>
+<option onmousedown="readchar('name_1','織田信秀')">織田信秀</option>
+<option onmousedown="readchar('name_1','奥村助右衛門')">奥村助右衛門</option>
+<option onmousedown="readchar('name_1','佐々成政')">佐々成政</option>
+<option onmousedown="readchar('name_1','山中鹿之介')">山中鹿之介</option>
+<option onmousedown="readchar('name_1','池田恒興')">池田恒興</option>
+<option onmousedown="readchar('name_1','成田長親')">成田長親</option>
+<option onmousedown="readchar('name_1','安藤守就')">安藤守就</option>
+<option onmousedown="readchar('name_1','片倉小十郎')">片倉小十郎</option>
+<option onmousedown="readchar('name_1','細川ガラシャ')">細川ガラシャ</option>
+<option onmousedown="readchar('name_1','江')">江</option>
+<option onmousedown="readchar('name_1','島左近')">島左近</option>
+<option onmousedown="readchar('name_1','大谷吉継')">大谷吉継</option>
+<option onmousedown="readchar('name_1','立花道雪')">立花道雪</option>
+<option onmousedown="readchar('name_1','鬼庭綱元')">鬼庭綱元</option>
+<option onmousedown="readchar('name_1','立花宗茂')">立花宗茂</option>
+<option onmousedown="readchar('name_1','織田信長')">織田信長</option>
+<option onmousedown="readchar('name_1','生駒吉乃')">生駒吉乃</option>
+<option onmousedown="readchar('name_1','九鬼嘉隆')">九鬼嘉隆</option>
+<option onmousedown="readchar('name_1','柴田勝家')">柴田勝家</option>
+<option onmousedown="readchar('name_1','織田長益')">織田長益</option>
+<option onmousedown="readchar('name_1','甲斐姫')">甲斐姫</option>
+<option onmousedown="readchar('name_1','斉藤道三')">斉藤道三</option>
+<option onmousedown="readchar('name_1','仙石秀久')">仙石秀久</option>
+<option onmousedown="readchar('name_1','織田つや')">織田つや</option>
+<option onmousedown="readchar('name_1','雑賀孫市')">雑賀孫市</option>
+<option onmousedown="readchar('name_1','大内義隆')">大内義隆</option>
+<option onmousedown="readchar('name_1','石田三成')">石田三成</option>
+<option onmousedown="readchar('name_1','茶々')">茶々</option>
+<option onmousedown="readchar('name_1','愛姫')">愛姫</option>
+<option onmousedown="readchar('name_1','明智光秀')">明智光秀</option>
+<option onmousedown="readchar('name_1','徳川家康')">徳川家康</option>
+<option onmousedown="readchar('name_1','本願寺顕如')">本願寺顕如</option>
+<option onmousedown="readchar('name_1','浅井長政')">浅井長政</option>
+<option onmousedown="readchar('name_1','竹中半兵衛')">竹中半兵衛</option>
+<option onmousedown="readchar('name_1','黒田官兵衛')">黒田官兵衛</option>
+<option onmousedown="readchar('name_1','濃姫')">濃姫</option>
+<option onmousedown="readchar('name_1','大友宗麟')">大友宗麟</option>
+<option onmousedown="readchar('name_1','龍造寺隆信')">龍造寺隆信</option>
+<option onmousedown="readchar('name_1','風魔小太郎')">風魔小太郎</option>
+<option onmousedown="readchar('name_1','北条氏康')">北条氏康</option>
+<option onmousedown="readchar('name_1','武田信玄')">武田信玄</option>
+<option onmousedown="readchar('name_1','仙桃院')">仙桃院</option>
+<option onmousedown="readchar('name_1','山本勘助')">山本勘助</option>
+<option onmousedown="readchar('name_1','支倉常長')">支倉常長</option>
+<option onmousedown="readchar('name_1','武田信繁')">武田信繁</option>
+<option onmousedown="readchar('name_1','直江兼続')">直江兼続</option>
+<option onmousedown="readchar('name_1','上杉謙信')">上杉謙信</option>
+<option onmousedown="readchar('name_1','滝川一益')">滝川一益</option>
+<option onmousedown="readchar('name_1','南殿')">南殿</option>
+<option onmousedown="readchar('name_1','毛利輝元')">毛利輝元</option>
+<option onmousedown="readchar('name_1','神保氏張')">神保氏張</option>
+<option onmousedown="readchar('name_1','前田利家')">前田利家</option>
+<option onmousedown="readchar('name_1','まつ')">まつ</option>
+<option onmousedown="readchar('name_1','村井長頼')">村井長頼</option>
+<option onmousedown="readchar('name_1','島津義久')">島津義久</option>
+<option onmousedown="readchar('name_1','新納忠元')">新納忠元</option>
+<option onmousedown="readchar('name_1','島津義弘')">島津義弘</option>
+<option onmousedown="readchar('name_1','天海')">天海</option>
+<option onmousedown="readchar('name_1','俵屋宗達')">俵屋宗達</option>
+<option onmousedown="readchar('name_1','豊臣秀長')">豊臣秀長</option>
+<option onmousedown="readchar('name_1','冬姫')">冬姫</option>
+<option onmousedown="readchar('name_1','小西行長')">小西行長</option>
+<option onmousedown="readchar('name_1','足利義昭')">足利義昭</option>
+<option onmousedown="readchar('name_1','今川義元')">今川義元</option>
+<option onmousedown="readchar('name_1','今川氏真')">今川氏真</option>
+<option onmousedown="readchar('name_1','朝比奈泰朝')">朝比奈泰朝</option>
+<option onmousedown="readchar('name_1','下間頼廉')">下間頼廉</option>
+<option onmousedown="readchar('name_1','下間仲孝')">下間仲孝</option>
+<option onmousedown="readchar('name_1','高山右近')">高山右近</option>
+<option onmousedown="readchar('name_1','稲葉深芳野')">稲葉深芳野</option>
+<option onmousedown="readchar('name_1','小見の方')">小見の方</option>
+<option onmousedown="readchar('name_1','六角義賢')">六角義賢</option>
+<option onmousedown="readchar('name_1','最上義光')">最上義光</option>
+<option onmousedown="readchar('name_1','後藤又兵衛')">後藤又兵衛</option>
+<option onmousedown="readchar('name_1','霧隠才蔵')">霧隠才蔵</option>
+<option onmousedown="readchar('name_1','立花ぎん千代')">立花ぎん千代</option>
+<option onmousedown="readchar('name_1','酒井忠次')">酒井忠次</option>
+<option onmousedown="readchar('name_1','宇喜多秀家')">宇喜多秀家</option>
+<option onmousedown="readchar('name_1','小早川隆景')">小早川隆景</option>
+<option onmousedown="readchar('name_1','菊姫')">菊姫</option>
+<option onmousedown="readchar('name_1','桂岩院')">桂岩院</option>
+<option onmousedown="readchar('name_1','真田昌幸')">真田昌幸</option>
+<option onmousedown="readchar('name_1','福島正則')">福島正則</option>
+<option onmousedown="readchar('name_1','本多忠勝')">本多忠勝</option>
+<option onmousedown="readchar('name_1','榊原康政')">榊原康政</option>
+<option onmousedown="readchar('name_1','千代')">千代</option>
+<option onmousedown="readchar('name_1','井伊直政')">井伊直政</option>
+<option onmousedown="readchar('name_1','柳生十兵衛')">柳生十兵衛</option>
+<option onmousedown="readchar('name_1','宮本武蔵')">宮本武蔵</option>
+<option onmousedown="readchar('name_1','阿南の方')">阿南の方</option>
+<option onmousedown="readchar('name_1','五郎八姫')">五郎八姫</option>
+<option onmousedown="readchar('name_1','松平忠輝')">松平忠輝</option>
+<option onmousedown="readchar('name_1','蘆名義広')">蘆名義広</option>
+<option onmousedown="readchar('name_1','車斯忠')">車斯忠</option>
+<option onmousedown="readchar('name_1','猫御前')">猫御前</option>
+<option onmousedown="readchar('name_1','香の前')">香の前</option>
+<option onmousedown="readchar('name_1','鬼庭左月斎')">鬼庭左月斎</option>
+<option onmousedown="readchar('name_1','蒲生氏郷')">蒲生氏郷</option>
+<option onmousedown="readchar('name_1','相馬義胤')">相馬義胤</option>
+<option onmousedown="readchar('name_1','南部晴政')">南部晴政</option>
+<option onmousedown="readchar('name_1','前田慶次')">前田慶次</option>
+<option onmousedown="readchar('name_1','源義朝')">源義朝</option>
+<option onmousedown="readchar('name_1','源義経')">源義経</option>
+<option onmousedown="readchar('name_1','静御前')">静御前</option>
+<option onmousedown="readchar('name_1','那須与一')">那須与一</option>
+<option onmousedown="readchar('name_1','武蔵坊弁慶')">武蔵坊弁慶</option>
+<option onmousedown="readchar('name_1','常盤御前')">常盤御前</option>
+<option onmousedown="readchar('name_1','平清盛')">平清盛</option>
+<option onmousedown="readchar('name_1','平時子')">平時子</option>
+<option onmousedown="readchar('name_1','平宗盛')">平宗盛</option>
+<option onmousedown="readchar('name_1','源頼朝')">源頼朝</option>
+<option onmousedown="readchar('name_1','北条政子')">北条政子</option>
+<option onmousedown="readchar('name_1','木曽義仲')">木曽義仲</option>
+<option onmousedown="readchar('name_1','金太郎')">金太郎</option>
+<option onmousedown="readchar('name_1','梵天丸')">梵天丸</option>
+<option onmousedown="readchar('name_1','義姫')">義姫</option>
+<option onmousedown="readchar('name_1','お鍋の方')">お鍋の方</option>
+<option onmousedown="readchar('name_1','牛若丸')">牛若丸</option>
+<option onmousedown="readchar('name_1','鍋之助')">鍋之助</option>
+<option onmousedown="readchar('name_1','稲姫')">稲姫</option>
+<option onmousedown="readchar('name_1','阿国')">阿国</option>
+<option onmousedown="readchar('name_1','一休宗純')">一休宗純</option>
+<option onmousedown="readchar('name_1','竹千代')">竹千代</option>
+<option onmousedown="readchar('name_1','徳川秀忠')">徳川秀忠</option>
+<option onmousedown="readchar('name_1','徳川家光')">徳川家光</option>
+<option onmousedown="readchar('name_1','足利尊氏')">足利尊氏</option>
+<option onmousedown="readchar('name_1','吉法師')">吉法師</option>
+<option onmousedown="readchar('name_1','峰丸')">峰丸</option>
+<option onmousedown="readchar('name_1','万千代')">万千代</option>
+<option onmousedown="readchar('name_1','平手政秀')">平手政秀</option>
+<option onmousedown="readchar('name_1','土田御前')">土田御前</option>
+<option onmousedown="readchar('name_1','織田信孝')">織田信孝</option>
+<option onmousedown="readchar('name_1','京極高次')">京極高次</option>
+<option onmousedown="readchar('name_1','妻木煕子')">妻木煕子</option>
+<option onmousedown="readchar('name_1','佐久間盛政')">佐久間盛政</option>
+<option onmousedown="readchar('name_1','妙玖')">妙玖</option>
+<option onmousedown="readchar('name_1','彦星')">彦星</option>
+<option onmousedown="readchar('name_1','織姫')">織姫</option>
+<option onmousedown="readchar('name_1','村上景')">村上景</option>
+<option onmousedown="readchar('name_1','大祝鶴姫')">大祝鶴姫</option>
+<option onmousedown="readchar('name_1','毛利元就')">毛利元就</option>
+<option onmousedown="readchar('name_1','弘中隆包')">弘中隆包</option>
+<option onmousedown="readchar('name_1','毛利隆元')">毛利隆元</option>
+<option onmousedown="readchar('name_1','吉川元春')">吉川元春</option>
+<option onmousedown="readchar('name_1','豊臣秀頼')">豊臣秀頼</option>
+<option onmousedown="readchar('name_1','細川忠興')">細川忠興</option>
+<option onmousedown="readchar('name_1','春日局')">春日局</option>
+<option onmousedown="readchar('name_1','かぐや姫')">かぐや姫</option>
+<option onmousedown="readchar('name_1','徳川吉宗')">徳川吉宗</option>
+<option onmousedown="readchar('name_1','森長可')">森長可</option>
+<option onmousedown="readchar('name_1','藤堂高虎')">藤堂高虎</option>
+<option onmousedown="readchar('name_1','名古屋山三郎')">名古屋山三郎</option>
+<option onmousedown="readchar('name_1','長宗我部盛親')">長宗我部盛親</option>
+<option onmousedown="readchar('name_1','諏訪御料人')">諏訪御料人</option>
+<option onmousedown="readchar('name_1','京極マリア')">京極マリア</option>
+<option onmousedown="readchar('name_1','Fザビエル')">Fザビエル</option>
+<option onmousedown="readchar('name_1','天草四郎')">天草四郎</option>
+<option onmousedown="readchar('name_1','大村純忠')">大村純忠</option>
+<option onmousedown="readchar('name_1','有馬晴信')">有馬晴信</option>
+<option onmousedown="readchar('name_1','太原雪斎')">太原雪斎</option>
+<option onmousedown="readchar('name_1','定恵院')">定恵院</option>
+<option onmousedown="readchar('name_1','沖田総司')">沖田総司</option>
+<option onmousedown="readchar('name_1','近藤勇')">近藤勇</option>
+<option onmousedown="readchar('name_1','土方歳三')">土方歳三</option>
+<option onmousedown="readchar('name_1','井伊直虎')">井伊直虎</option>
+<option onmousedown="readchar('name_1','Lフロイス')">Lフロイス</option>
+<option onmousedown="readchar('name_1','三浦按針')">三浦按針</option>
+<option onmousedown="readchar('name_1','朱里')">朱里</option>
+<option onmousedown="readchar('name_1','愛紗')">愛紗</option>
+<option onmousedown="readchar('name_1','佐々木小次郎')">佐々木小次郎</option>
+<option onmousedown="readchar('name_1','足利義輝')">足利義輝</option>
+<option onmousedown="readchar('name_1','ペリー')">ペリー</option>
+<option onmousedown="readchar('name_1','馬場信春')">馬場信春</option>
+<option onmousedown="readchar('name_1','内藤昌豊')">内藤昌豊</option>
+<option onmousedown="readchar('name_1','築山殿')">築山殿</option>
+<option onmousedown="readchar('name_1','武田勝頼')">武田勝頼</option>
+<option onmousedown="readchar('name_1','望月千代女')">望月千代女</option>
+<option onmousedown="readchar('name_1','初芽局')">初芽局</option>
+<option onmousedown="readchar('name_1','蘆屋道満')">蘆屋道満</option>
+<option onmousedown="readchar('name_1','玉藻前')">玉藻前</option>
+<option onmousedown="readchar('name_1','酒呑童子')">酒呑童子</option>
+<option onmousedown="readchar('name_1','大嶽丸')">大嶽丸</option>
+<option onmousedown="readchar('name_1','源頼光')">源頼光</option>
+<option onmousedown="readchar('name_1','光源氏')">光源氏</option>
+<option onmousedown="readchar('name_1','紫の君')">紫の君</option>
+<option onmousedown="readchar('name_1','葛の葉')">葛の葉</option>
+<option onmousedown="readchar('name_1','安倍晴明')">安倍晴明</option>
+<option onmousedown="readchar('name_1','崇源院')">崇源院</option>
+<option onmousedown="readchar('name_1','伊東一刀斎')">伊東一刀斎</option>
+<option onmousedown="readchar('name_1','高台院')">高台院</option>
+<option onmousedown="readchar('name_1','八幡丸')">八幡丸</option>
+<option onmousedown="readchar('name_1','夜叉若')">夜叉若</option>
+<option onmousedown="readchar('name_1','見性院')">見性院</option>
+<option onmousedown="readchar('name_1','芳春院')">芳春院</option>
+<option onmousedown="readchar('name_1','天樹院')">天樹院</option>
+<option onmousedown="readchar('name_1','大蓮院')">大蓮院</option>
+<option onmousedown="readchar('name_1','甚次郎')">甚次郎</option>
+<option onmousedown="readchar('name_1','スサノオ')">スサノオ</option>
+<option onmousedown="readchar('name_1','ツクヨミ')">ツクヨミ</option>
+<option onmousedown="readchar('name_1','千利休')">千利休</option>
+<option onmousedown="readchar('name_1','古田織部')">古田織部</option>
+<option onmousedown="readchar('name_1','アマテラス')">アマテラス</option>
+<option onmousedown="readchar('name_1','イザナギ')">イザナギ</option>
+<option onmousedown="readchar('name_1','イザナミ')">イザナミ</option>
+<option onmousedown="readchar('name_1','森可成')">森可成</option>
+<option onmousedown="readchar('name_1','F・ザビエル')">F・ザビエル</option>
+<option onmousedown="readchar('name_1','斉藤義龍')">斉藤義龍</option>
+<option onmousedown="readchar('name_1','浅井久政')">浅井久政</option>
+<option onmousedown="readchar('name_1','京極竜子')">京極竜子</option>
+<option onmousedown="readchar('name_1','篤姫')">篤姫</option>
+<option onmousedown="readchar('name_1','蜂須賀小六')">蜂須賀小六</option>
+<option onmousedown="readchar('name_1','斎藤利三')">斎藤利三</option>
+<option onmousedown="readchar('name_1','卑弥呼')">卑弥呼</option>
+<option onmousedown="readchar('name_1','坂本龍馬')">坂本龍馬</option>
+<option onmousedown="readchar('name_1','石川五右衛門')">石川五右衛門</option>
+<option onmousedown="readchar('name_1','西郷隆盛')">西郷隆盛</option>
+<option onmousedown="readchar('name_1','大久保利通')">大久保利通</option>
+<option onmousedown="readchar('name_1','高杉晋作')">高杉晋作</option>
+<option onmousedown="readchar('name_1','桂小五郎')">桂小五郎</option>
+<option onmousedown="readchar('name_1','徳川慶喜')">徳川慶喜</option>
+<option onmousedown="readchar('name_1','島津豊久')">島津豊久</option>
+<option onmousedown="readchar('name_1','下間頼廉＆下間仲孝')">下間頼廉＆下間仲孝</option>
+<option onmousedown="readchar('name_1','奏')">奏</option>
+<option onmousedown="readchar('name_1','上杉謙信＆武田信玄')">上杉謙信＆武田信玄</option>
+<option onmousedown="readchar('name_1','高橋紹運')">高橋紹運</option>
+<option onmousedown="readchar('name_1','楠木正成')">楠木正成</option>
+<option onmousedown="readchar('name_1','鳥居元忠')">鳥居元忠</option>
+<option onmousedown="readchar('name_1','小野小町')">小野小町</option>
+<option onmousedown="readchar('name_1','オルガンティノ')">オルガンティノ</option>
+<option onmousedown="readchar('name_1','茶屋四郎次郎')">茶屋四郎次郎</option>
+<option onmousedown="readchar('name_1','穴山梅雪')">穴山梅雪</option>
+<option onmousedown="readchar('name_1','早川殿')">早川殿</option>
+<option onmousedown="readchar('name_1','北条氏政')">北条氏政</option>
+<option onmousedown="readchar('name_1','月詠')">月詠</option>
+<option onmousedown="readchar('name_1','雷切のチドリ')">雷切のチドリ</option>
+<option onmousedown="readchar('name_1','塚原卜伝')">塚原卜伝</option>
+<option onmousedown="readchar('name_1','柳生宗矩')">柳生宗矩</option>
+<option onmousedown="readchar('name_1','新免無二斎')">新免無二斎</option>
+<option onmousedown="readchar('name_1','宝蔵院胤栄')">宝蔵院胤栄</option>
+<option onmousedown="readchar('name_1','パンドラ')">パンドラ</option>
+<option onmousedown="readchar('name_1','ウーラノス')">ウーラノス</option>
+<option onmousedown="readchar('name_1','鬼一法眼')">鬼一法眼</option>
+<option onmousedown="readchar('name_1','賀茂忠行')">賀茂忠行</option>
+<option onmousedown="readchar('name_1','源為朝')">源為朝</option>
+<option onmousedown="readchar('name_1','石鎚山法起坊')">石鎚山法起坊</option>
+<option onmousedown="readchar('name_1','くだん')">くだん</option>
+<option onmousedown="readchar('name_1','刑部姫')">刑部姫</option>
+<option onmousedown="readchar('name_1','若狭')">若狭</option>
+<option onmousedown="readchar('name_1','新島八重')">新島八重</option>
+<option onmousedown="readchar('name_1','津田算長')">津田算長</option>
+<option onmousedown="readchar('name_1','藤原秀衡')">藤原秀衡</option>
+<option onmousedown="readchar('name_1','北条時政')">北条時政</option>
+<option onmousedown="readchar('name_1','蘇我入鹿')">蘇我入鹿</option>
+<option onmousedown="readchar('name_1','中臣鎌足')">中臣鎌足</option>
+<option onmousedown="readchar('name_1','ヤマトタケル')">ヤマトタケル</option>
+<option onmousedown="readchar('name_1','行基')">行基</option>
+<option onmousedown="readchar('name_1','鑑真')">鑑真</option>
+<option onmousedown="readchar('name_1','聖徳太子')">聖徳太子</option>
+<option onmousedown="readchar('name_1','前田利長')">前田利長</option>
+<option onmousedown="readchar('name_1','豪姫')">豪姫</option>
+<option onmousedown="readchar('name_1','前田利久')">前田利久</option>
+<option onmousedown="readchar('name_1','松平容保')">松平容保</option>
+<option onmousedown="readchar('name_1','エメラルド')">エメラルド</option>
+<option onmousedown="readchar('name_1','ダイヤモンド')">ダイヤモンド</option>
+<option onmousedown="readchar('name_1','永倉新八')">永倉新八</option>
+<option onmousedown="readchar('name_1','足利直義')">足利直義</option>
+<option onmousedown="readchar('name_1','高師直')">高師直</option>
+<option onmousedown="readchar('name_1','兼好法師')">兼好法師</option>
+<option onmousedown="readchar('name_1','浅井三姉妹')">浅井三姉妹</option>
+<option onmousedown="readchar('name_1','狩野永徳')">狩野永徳</option>
+<option onmousedown="readchar('name_1','弥助')">弥助</option>
+<option onmousedown="readchar('name_1','明石全登')">明石全登</option>
+<option onmousedown="readchar('name_1','弁丸')">弁丸</option>
+<option onmousedown="readchar('name_1','桃太郎')">桃太郎</option>
+<option onmousedown="readchar('name_1','浦島太郎')">浦島太郎</option>
+<option onmousedown="readchar('name_1','川姫')">川姫</option>
+<option onmousedown="readchar('name_1','座敷童子')">座敷童子</option>
+<option onmousedown="readchar('name_1','一寸法師')">一寸法師</option>
+<option onmousedown="readchar('name_1','浅野長政')">浅野長政</option>
+<option onmousedown="readchar('name_1','結城秀康')">結城秀康</option>
+<option onmousedown="readchar('name_1','豊臣秀次')">豊臣秀次</option>
+<option onmousedown="readchar('name_1','黒田長政')">黒田長政</option>
+<option onmousedown="readchar('name_1','増田長盛')">増田長盛</option>
+<option onmousedown="readchar('name_1','斎藤一')">斎藤一</option>
+<option onmousedown="readchar('name_1','藤堂平助')">藤堂平助</option>
+<option onmousedown="readchar('name_1','郷御前')">郷御前</option>
+<option onmousedown="readchar('name_1','五代友厚')">五代友厚</option>
+<option onmousedown="readchar('name_1','大村益次郎')">大村益次郎</option>
+<option onmousedown="readchar('name_1','モリオン')">モリオン</option>
+<option onmousedown="readchar('name_1','ルビー')">ルビー</option>
+<option onmousedown="readchar('name_1','堀直寄')">堀直寄</option>
+<option onmousedown="readchar('name_1','―うっかり剣豪―神子上典膳')">―うっかり剣豪―神子上典膳</option>
+<option onmousedown="readchar('name_1','―無二の剣才―柳生十兵衛')">―無二の剣才―柳生十兵衛</option>
+<option onmousedown="readchar('name_1','―ミステリアス法僧―天海')">―ミステリアス法僧―天海</option>
+<option onmousedown="readchar('name_1','土岐頼行')">土岐頼行</option>
+<option onmousedown="readchar('name_1','沢庵宗彭')">沢庵宗彭</option>
+<option onmousedown="readchar('name_1','皎月院')">皎月院</option>
+<option onmousedown="readchar('name_1','細川幽斎')">細川幽斎</option>
+<option onmousedown="readchar('name_1','瀬川路考')">瀬川路考</option>
+<option onmousedown="readchar('name_1','平賀源内')">平賀源内</option>
+<option onmousedown="readchar('name_1','小林一茶')">小林一茶</option>
+<option onmousedown="readchar('name_1','歌川広重')">歌川広重</option>
+<option onmousedown="readchar('name_1','田中吉政')">田中吉政</option>
+<option onmousedown="readchar('name_1','吉弘鑑理')">吉弘鑑理</option>
+<option onmousedown="readchar('name_1','臼杵鑑速')">臼杵鑑速</option>
+<option onmousedown="readchar('name_1','葛飾北斎')">葛飾北斎</option>
+<option onmousedown="readchar('name_1','島津斉彬')">島津斉彬</option>
+<option onmousedown="readchar('name_1','坂本乙女')">坂本乙女</option>
+<option onmousedown="readchar('name_1','勝海舟')">勝海舟</option>
+<option onmousedown="readchar('name_1','小松帯刀')">小松帯刀</option>
+<option onmousedown="readchar('name_1','筧十蔵')">筧十蔵</option>
+<option onmousedown="readchar('name_1','宇都宮公綱')">宇都宮公綱</option>
+<option onmousedown="readchar('name_1','小早川秀秋')">小早川秀秋</option>
+<option onmousedown="readchar('name_1','武田信義')">武田信義</option>
+<option onmousedown="readchar('name_1','板額御前')">板額御前</option>
+<option onmousedown="readchar('name_1','三英傑')">三英傑</option>
+<option onmousedown="readchar('name_1','百地三太夫')">百地三太夫</option>
+<option onmousedown="readchar('name_1','松尾芭蕉')">松尾芭蕉</option>
+<option onmousedown="readchar('name_1','鴨長明')">鴨長明</option>
+<option onmousedown="readchar('name_1','柿本人麻呂')">柿本人麻呂</option>
+<option onmousedown="readchar('name_1','紫式部')">紫式部</option>
+<option onmousedown="readchar('name_1','世阿弥')">世阿弥</option>
+<option onmousedown="readchar('name_1','滝沢馬琴')">滝沢馬琴</option>
+<option onmousedown="readchar('name_1','清少納言')">清少納言</option>
+<option onmousedown="readchar('name_1','神子上典膳')">神子上典膳</option>
+<option onmousedown="readchar('name_1','明智光慶')">明智光慶</option>
+<option onmousedown="readchar('name_1','伊東マンショ')">伊東マンショ</option>
+<option onmousedown="readchar('name_1','土岐頼芸')">土岐頼芸</option>
+<option onmousedown="readchar('name_1','北条早雲')">北条早雲</option>
+<option onmousedown="readchar('name_1','尼子義久')">尼子義久</option>
+<option onmousedown="readchar('name_1','摩阿姫')">摩阿姫</option>
+<option onmousedown="readchar('name_1','ジンカイト')">ジンカイト</option>
+<option onmousedown="readchar('name_1','ロードナイト')">ロードナイト</option>
+<option onmousedown="readchar('name_1','X')">X</option>
+<option onmousedown="readchar('name_1','妲己')">妲己</option>
+<option onmousedown="readchar('name_1','胡喜媚')">胡喜媚</option>
+<option onmousedown="readchar('name_1','王貴人')">王貴人</option>
+<option onmousedown="readchar('name_1','コノハナサクヤ')">コノハナサクヤ</option>
+<option onmousedown="readchar('name_1','前田利春')">前田利春</option>
+<option onmousedown="readchar('name_1','小少将')">小少将</option>
+<option onmousedown="readchar('name_1','勝五郎')">勝五郎</option>
+<option onmousedown="readchar('name_1','福')">福</option>
+<option onmousedown="readchar('name_1','法秀院')">法秀院</option>
+<option onmousedown="readchar('name_1','弥三郎')">弥三郎</option>
+<option onmousedown="readchar('name_1','徳川家斉')">徳川家斉</option>
+<option onmousedown="readchar('name_1','尼子経久')">尼子経久</option>
+<option onmousedown="readchar('name_1','蠣崎季広')">蠣崎季広</option>
+<option onmousedown="readchar('name_1','東郷平八郎')">東郷平八郎</option>
+<option onmousedown="readchar('name_1','鬼子母神')">鬼子母神</option>
+<option onmousedown="readchar('name_1','毛利秀包')">毛利秀包</option>
+<option onmousedown="readchar('name_1','佐久間信盛')">佐久間信盛</option>
+<option onmousedown="readchar('name_1','井伊直盛')">井伊直盛</option>
+<option onmousedown="readchar('name_1','毛屋武久')">毛屋武久</option>
+<option onmousedown="readchar('name_1',' ')"> </option>
+<option onmousedown="readchar('name_1','太公望')">太公望</option>
+<option onmousedown="readchar('name_1','楊ゼン')">楊ゼン</option>
+<option onmousedown="readchar('name_1','太上老君')">太上老君</option>
+<option onmousedown="readchar('name_1','奏(大人)')">奏(大人)</option>
+<option onmousedown="readchar('name_1','ティンクトゥラ')">ティンクトゥラ</option>
+<option onmousedown="readchar('name_1','犬・猿・キジ')">犬・猿・キジ</option>
+<option onmousedown="readchar('name_1','乙姫')">乙姫</option>
+<option onmousedown="readchar('name_1','ヤマタノオロチ')">ヤマタノオロチ</option>
+<option onmousedown="readchar('name_1','ユラギ')">ユラギ</option>
+<option onmousedown="readchar('name_1','プラチナ')">プラチナ</option>
+<option onmousedown="readchar('name_1','閻魔')">閻魔</option>
+<option onmousedown="readchar('name_1','閻魔の左手')">閻魔の左手</option>
+<option onmousedown="readchar('name_1','閻魔の右手')">閻魔の右手</option>
+<option onmousedown="readchar('name_1','アレキサンドライト')">アレキサンドライト</option>
+<option onmousedown="readchar('name_1','風神')">風神</option>
+<option onmousedown="readchar('name_1','雷神')">雷神</option>
+<option onmousedown="readchar('name_1','石川数正')">石川数正</option>
+<option onmousedown="readchar('name_1','柳生石舟斎')">柳生石舟斎</option>
+<option onmousedown="readchar('name_1','小野妹子')">小野妹子</option>
+<option onmousedown="readchar('name_1','セラフィナイト')">セラフィナイト</option>
+<option onmousedown="readchar('name_1','桜石')">桜石</option>
+<option onmousedown="readchar('name_1','江月宗玩')">江月宗玩</option>
+<option onmousedown="readchar('name_1','源頼家')">源頼家</option>
+<option onmousedown="readchar('name_1','三淵藤英')">三淵藤英</option>
+<option onmousedown="readchar('name_1','伏姫')">伏姫</option>
+<option onmousedown="readchar('name_1','ブラックダイヤモンド')">ブラックダイヤモンド</option>
+<option onmousedown="readchar('name_1','ブラックダイヤモンド・ルミナス')">ブラックダイヤモンド・ルミナス</option>
+<option onmousedown="readchar('name_1','ブラックダイヤモンド・イル')">ブラックダイヤモンド・イル</option>
+
+</select>
+<select id="CVbox" size="8" class="CVbox">
+
+<option onmousedown="readchar('cv','橘まお')">橘まお</option>
+<option onmousedown="readchar('cv','shizuku')">shizuku</option>
+<option onmousedown="readchar('cv','佐倉もも花')">佐倉もも花</option>
+<option onmousedown="readchar('cv','野々村紗夜')">野々村紗夜</option>
+<option onmousedown="readchar('cv','星空ユメ')">星空ユメ</option>
+<option onmousedown="readchar('cv','綾音まこ')">綾音まこ</option>
+<option onmousedown="readchar('cv','佐倉江美')">佐倉江美</option>
+<option onmousedown="readchar('cv','綾瀬あかり')">綾瀬あかり</option>
+<option onmousedown="readchar('cv','奥山歩')">奥山歩</option>
+<option onmousedown="readchar('cv','森山いちご')">森山いちご</option>
+<option onmousedown="readchar('cv','唯香')">唯香</option>
+<option onmousedown="readchar('cv','手塚りょうこ')">手塚りょうこ</option>
+<option onmousedown="readchar('cv','桜城ちか')">桜城ちか</option>
+<option onmousedown="readchar('cv','中家志穂')">中家志穂</option>
+<option onmousedown="readchar('cv','ヒマリ')">ヒマリ</option>
+<option onmousedown="readchar('cv','霧島はるな')">霧島はるな</option>
+<option onmousedown="readchar('cv','藤森ゆき奈')">藤森ゆき奈</option>
+<option onmousedown="readchar('cv','上田朱音')">上田朱音</option>
+<option onmousedown="readchar('cv','鶴屋春人')">鶴屋春人</option>
+<option onmousedown="readchar('cv','立花沙羅')">立花沙羅</option>
+<option onmousedown="readchar('cv','東かりん')">東かりん</option>
+<option onmousedown="readchar('cv','民安ともえ')">民安ともえ</option>
+<option onmousedown="readchar('cv','葵ゆり')">葵ゆり</option>
+<option onmousedown="readchar('cv','雪村とあ')">雪村とあ</option>
+<option onmousedown="readchar('cv','七瀬こより')">七瀬こより</option>
+<option onmousedown="readchar('cv','月永りと')">月永りと</option>
+<option onmousedown="readchar('cv','入江望愛')">入江望愛</option>
+<option onmousedown="readchar('cv','美空なつひ')">美空なつひ</option>
+<option onmousedown="readchar('cv','笠木ゆん')">笠木ゆん</option>
+<option onmousedown="readchar('cv','落合周')">落合周</option>
+<option onmousedown="readchar('cv','南有鹿')">南有鹿</option>
+<option onmousedown="readchar('cv','和央きりか')">和央きりか</option>
+<option onmousedown="readchar('cv','小波すず')">小波すず</option>
+<option onmousedown="readchar('cv','鹿瀬紫卯')">鹿瀬紫卯</option>
+<option onmousedown="readchar('cv','榊原ゆい')">榊原ゆい</option>
+<option onmousedown="readchar('cv','楠鈴音')">楠鈴音</option>
+<option onmousedown="readchar('cv','本山美奈')">本山美奈</option>
+<option onmousedown="readchar('cv','柚原みう')">柚原みう</option>
+<option onmousedown="readchar('cv','野中みかん')">野中みかん</option>
+<option onmousedown="readchar('cv','水霧けいと')">水霧けいと</option>
+<option onmousedown="readchar('cv','姫川あいり')">姫川あいり</option>
+<option onmousedown="readchar('cv','汐路美晴')">汐路美晴</option>
+<option onmousedown="readchar('cv','葉月詩織')">葉月詩織</option>
+<option onmousedown="readchar('cv','百瀬みずき')">百瀬みずき</option>
+<option onmousedown="readchar('cv','春山色葉')">春山色葉</option>
+<option onmousedown="readchar('cv','立花沙羅＆榊原ゆい')">立花沙羅＆榊原ゆい</option>
+<option onmousedown="readchar('cv','佐倉もも花＆森山いちご')">佐倉もも花＆森山いちご</option>
+<option onmousedown="readchar('cv','実咲')">実咲</option>
+<option onmousedown="readchar('cv','こたつねこ')">こたつねこ</option>
+<option onmousedown="readchar('cv','月影桃')">月影桃</option>
+<option onmousedown="readchar('cv','夏目みつ華')">夏目みつ華</option>
+<option onmousedown="readchar('cv','花寺香蓮')">花寺香蓮</option>
+<option onmousedown="readchar('cv','広深香菜')">広深香菜</option>
+<option onmousedown="readchar('cv','蝉時雨')">蝉時雨</option>
+<option onmousedown="readchar('cv','夜野ほたる')">夜野ほたる</option>
+<option onmousedown="readchar('cv','祭場あかね')">祭場あかね</option>
+<option onmousedown="readchar('cv','神末ここ')">神末ここ</option>
+<option onmousedown="readchar('cv','伊ヶ崎綾香')">伊ヶ崎綾香</option>
+<option onmousedown="readchar('cv','蓬かすみ')">蓬かすみ</option>
+<option onmousedown="readchar('cv','海月ひなの')">海月ひなの</option>
+<option onmousedown="readchar('cv','伊衣めろん')">伊衣めろん</option>
+<option onmousedown="readchar('cv','藍沢夏癒')">藍沢夏癒</option>
+<option onmousedown="readchar('cv','綾音まこ/星空ユメ/南有鹿')">綾音まこ/星空ユメ/南有鹿</option>
+<option onmousedown="readchar('cv','ありかわ真奈')">ありかわ真奈</option>
+<option onmousedown="readchar('cv','花影蛍')">花影蛍</option>
+<option onmousedown="readchar('cv','榛名れん')">榛名れん</option>
+<option onmousedown="readchar('cv','花丸あすな')">花丸あすな</option>
+<option onmousedown="readchar('cv','蒼乃むすび')">蒼乃むすび</option>
+<option onmousedown="readchar('cv','夏乃うめ')">夏乃うめ</option>
+<option onmousedown="readchar('cv','ヒマリ/手塚りょうこ/唯香')">ヒマリ/手塚りょうこ/唯香</option>
+<option onmousedown="readchar('cv','相模恋')">相模恋</option>
+<option onmousedown="readchar('cv','冬峰小鈴')">冬峰小鈴</option>
+<option onmousedown="readchar('cv','八ツ橋きなこ')">八ツ橋きなこ</option>
+<option onmousedown="readchar('cv','月森ねね')">月森ねね</option>
+<option onmousedown="readchar('cv','柚原みう(藤森ゆき奈から変更)')">柚原みう(藤森ゆき奈から変更)</option>
+<option onmousedown="readchar('cv','陽乃ゆゆ/綾音まこ/橘まお')">陽乃ゆゆ/綾音まこ/橘まお</option>
+<option onmousedown="readchar('cv','陽乃ゆゆ')">陽乃ゆゆ</option>
+<option onmousedown="readchar('cv','歩サラ')">歩サラ</option>
+<option onmousedown="readchar('cv','藤咲ウサ')">藤咲ウサ</option>
+<option onmousedown="readchar('cv','こたつみやこ')">こたつみやこ</option>
+
+</select>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿<html style=" background:black">
+
+<!--	<script type="text/javascript" src="js/playuse.js"></script>
+-->
+<script type="text/javascript">
+
+function test1(){
+
+window.frames["sceneopena"].document.location.href="scene_a.html";
+setTimeout(function(){
+
+var sceneid0 = document.getElementById('sceneid');
+  var sceneid= sceneid0.value;
+
+            var os = document.getElementById("level");
+            for (var i = 0; i < os.length; i++) {
+                if (os.options[i].selected == true)
+			level=os.options[i].text;
+            }
+
+var script = document.createElement("script");
+script.src = 'http://static.senpri.com/drama/card/'+level+'/'+sceneid+'.js';
+window.frames["sceneopena"].document.body.appendChild(script);
+},500)
+
+setTimeout(function(){
+return scenes1X(sceneid,level)
+},1000)
+}
+
+function scenes1X(sceneid,level){
+
+setTimeout(function(){
+/*
+var script = document.createElement("script");
+script.src = 'http://static.senpri.com/drama/card/'+level+'/'+sceneid+'.js';
+window.frames["sceneopena"].document.body.appendChild(script);
+*/
+/*
+var script = document.createElement("script");
+script.src = "../drama/card/scene1/"+sceneid2+".js";
+window.frames["sceneopenh"].document.body.appendChild(script);
+*/
+var script = document.createElement("script");
+script.src = "index/js_anime/common/adv/playADV.min.js";
+window.frames["sceneopena"].document.body.appendChild(script);
+
+
+},100)
+
+}
+
+</script>
+
+<button name="Abutton1" style="position:absolute; left:750px;top:130px;" onclick="test1()">TEST</button>
+<label id="Label1" style="position:absolute; left:650px;top:70px; color:white;">scene file name</label>
+<input  id="sceneid"name="Text1" type="text" style="position:absolute; left:650px;top:100px;">
+<select name="Select1" id="level" style="position:absolute; left:650px;top:130px;">
+				<option value="scene1">scene1</option>
+				<option value="scene2">scene2</option>
+				<option value="scene3">scene3</option>
+<option value="touch">touch</option>
+			</select>
+<body>
+
+	<iframe id="sceneopena" name="sceneopena" src="scene_a.html" style="-webkit-transform:scale3d(0.5, 0.5, 0.5);-webkit-transform-origin: 0px 0px; position:fixed; left: 0px; top: 0px; width: 1200px; height: 1000px; z-index:10;" ></iframe>
+</body>	
+</html>

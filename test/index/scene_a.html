@@ -1,0 +1,108 @@
+﻿<html lang="ja" oncontextmenu="return false;">
+    <head>
+        <title>戦乱プリンセスＧ</title>
+        <meta description="戦プリ詳細">
+        <meta keywords="戦プリキーワード">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=320, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+            <link href="./css_anime/common/playADV_pc.min.css" rel="stylesheet" type="text/css">
+    
+		<style>
+			.drama_window {
+    				transform:scale(0.87, 0.87);
+				transform-origin: 0px 0px;
+				-webkit-transform-style:preserve-3d;
+				-webkit-transform:scale3d(0.87, 0.87, 0.87);
+				-webkit-transform-origin: 0px 0px;
+                width: 557px;
+                height: 742px;
+                margin: 0px auto;
+    			}
+		</style>
+    </head>
+    <body>
+        <div id="animeContainer" style="background-image:url(../img/page/pc/flash_BG_960.jpg)">
+            <div id="dramaContainer" style="background-image:url(../img/page/pc/flash_frame.png)" >
+                <div class="drama_window">
+                    <div id="container">
+                        <div id="effect"></div>
+                        <div id="anime"><div id="animeImg"></div></div>
+                        <div id="bg"></div>
+                        <div id="charaCenter"></div>
+                        <div id="charaLeft"></div>
+                        <div id="charaRight"></div>
+                        <div id="charaName"></div>
+                        <div id="message"></div>
+                        <div id="skipButton"></div>
+                        <div id="autoButton"></div>
+                        <div id="repeatButton"></div>
+                        <div id="soundToggleButton"></div>
+                        <div id="xButton"></div>
+                        <div id="hitArea"></div>
+                        <div id="selectFrame">
+                            <div id="selectBtn1"></div>
+                            <div id="selectBtn2"></div>
+                        </div>
+                        <div id="ready"></div>
+                        <div id="selectButton">
+                            <a id="btnSoundOn"></a>
+                            <a id="btnSoundOff"></a>
+                        </div>
+                        <div id='loader'>
+                            <div id='circleArea'>
+                                <div id='circle'></div>
+                            </div>
+                            <div id='loadingText'>Now Loading...</div>
+                        </div>
+                    </div>
+                </div>
+	        </div>
+        </div>
+        <script type="text/javascript">
+            var g_RootPath = '../';
+                            var g_expand = false;
+                                        var di = 0;
+                                        var so = 1;
+                                                    var isTutorial = false;
+                        var g_NextURL = "";
+            var g_UserName ='';
+
+                            var cacheVersion = "242";
+                        var isAdv = true;
+
+function CHNAME(A){
+
+g_UserName = A;
+
+}
+                   
+function scenewindow(){
+window.parent.frames.scene4();
+}
+
+document.onkeydown=keydown
+function keydown(){
+if (event.keyCode=== 87) {window.parent.frames.fullw_0()}
+}
+
+
+
+        </script>
+        <script type="text/javascript" src="./js/library/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="./js/library/flipsnap.min.js"></script>
+        <script type="text/javascript" src="./js/library/jquery.mobile.custom.min.js"></script>
+        <script type="text/javascript" src="./js/library/ofi.min.js"></script>
+        <script type="text/javascript" src="./js/library/itemslide.min.js"></script>
+        <script src="./js/jquery.mousewheel.js"></script>
+        <script type="text/javascript" src="./js/library/lazysizes.js"></script>
+        <script type="text/javascript" src="./js/library/jquery.cookie.js"></script>
+        <script type="text/javascript">var pageZoom = 1.0;var isFull = true;$(document).ready(function() {});</script>
+        <script type="text/javascript" src="./js/all_ui.min.js"></script>
+        <script type="text/javascript" src="./js/requestApiIFrame.min.js"></script>
+
+        
+        <script type="text/javascript" src=""></script>
+<!--                    <script type="text/javascript" src="./js_anime/common/adv/playADV.min.js"></script>-->
+            </body>
+</html>
